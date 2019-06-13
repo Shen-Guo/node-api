@@ -62,6 +62,6 @@ app.get('/api/dresses',(req,res) =>{
   res.json(db)
 })
 
-app.listen(8888,()=>{
+app.listen(process.env.PORT,()=>{
   console.log("listening")
 })
