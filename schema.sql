@@ -22,4 +22,14 @@ CREATE TABLE dresses(
 
 );
 
- 
+CREATE TABLE cart_items(
+  id SERIAL PRIMARY KEY,
+  title TEXT,
+  imgUrl TEXT,       
+  originalPrice REAL,
+  discountedPrice REAL,
+  size TEXT,
+  quantity INTEGER,
+  user_id INTEGER REFERENCES users (id)
+
+);
