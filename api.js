@@ -1,6 +1,24 @@
 const express = require('express');
 const app = express();
 const cors =require('cors')
+const { Pool,Client } = require('pg')
+
+// pg config
+const client = new Client()
+const pool = new Pool()
+
+const res = await pool.query('SELECT NOW()')
+await pool.end()
+
+// clients will also use environment variables
+// for connection information
+const client = new Client()
+await client.connect()
+
+const res = await client.query('SELECT NOW()')
+await client.end()
+
+
 const db = {
   boxes: [{
             id : 1,
